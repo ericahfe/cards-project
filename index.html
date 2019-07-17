@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link href="style.css" rel="stylesheet" type="text/css">    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cards</title>
+</head>
+<body>
+    
+
+    
+    <div id="app" >
+
+    </div>
+ 
+    <script>
+    const personas = [
+        {
+            avatar : "https://randomuser.me/api/portraits/men/1.jpg",
+            nombre : "Eric",
+            apellido_paterno : "Alvarez",
+            apellido_materno : "Hernandez",
+            edad : 18,
+            tienen_novia : true,
+            biografia : "Nacio en San Luis Potosi, SLP sus padres son Luis Eric Alvarez Meza y Carmen Hernandez a la Torre, estudio en la primaria ferrocarriles nacionales, posterior estudio su secundaria en la graciano sanchez y la preparatoria en el cobach plantel 26, actualemente esta estudiando en la universidad politecnica de manofactura",
+            pasatiempos : ["jugar lolsito", "salir con su novia", "estudiar programacion"]
+        },
+        {
+            avatar : "https://pbs.twimg.com/profile_images/953000038967468033/n4Ngwvi7.jpg",
+            nombre : "Luis Eric",
+            apellido_paterno : "Alvarez",
+            apellido_materno : "Hernandez",
+            edad : 49,
+            tienen_novia : true,
+            biografia : "Nacio en Rio Verde SLP, sus padres son Margarito Alvarez Contreras, y Imelda Meza Gutierrez, estudio en la primaria Miguel Barbosa, la secundaria la estudio en la secundaria tecnologica 1 la preparatoria en una tecnologica, hizo licenciatura y actualmente es maestro en la julian martinez isais",
+            pasatiempos : ["Ir a pescar", "Salir a pistear", "jugar baraja"],
+        },        
+        {
+            avatar : "https://randomuser.me/api/portraits/women/68.jpg",
+            nombre : "Carmen",
+            apellido_paterno : "Hernández",
+            apellido_materno : "a la Torre",
+            edad : 47,
+            tienen_novia : false,
+            biografia : "Nacio en San Luis Potosí SLP, sus padres fueron Isabel Hernandez, y Maria antonieta a la torre, estudio la primaria en jose vazquez, la secundaria en la tecnica 71, y la preparatoria en un bachiller general, estudio psicologia pero no termino la carrera.",
+            pasatiempos : "",
+        },
+        {
+            avatar : "https://randomuser.me/api/portraits/men/81.jpg",
+            nombre : "Christian",
+            apellido_paterno : "Martínez",
+            apellido_materno : "Alvarez",
+            edad : 19,
+            tienen_novia : false,
+            biografia : "Nacio en San Luis Potosí SLP, sus padres son Nanci Alvarez Meza, y Jose Luis martinez, estudio la primaria en el colegio montesori, la secundaria la estudio en el colegio alma patria, la preparatoria en la uvm y actualmente esta estudiando ITI en la universidad politecnica",
+            pasatiempos : ["Jugar loslito"]
+
+        },
+        {
+            avatar : "https://pbs.twimg.com/profile_images/974603248119222272/N5PLzyan.jpg",
+            nombre : "Alex",
+            apellido_paterno : "Martínez",
+            apellido_materno : "Alvarez",
+            edad : 29,
+            tienen_novia : false,
+            biografia : "Nacio en San Luis Potosí SLP, sus padres son Nanci Alvarez Meza y Jose Luis Martínez, estudio la primaria en fernando juarez dominguez, la secundaria en la graciano sanchez romo, la preparatoria en el colegio alma patria y estudio diseño grafico, actualmente trabaja de programador",
+            pasatiempos : ["Jugar lolsito", "Enseñar programación"]
+        },
+        {
+            avatar : "https://images-na.ssl-images-amazon.com/images/M/MV5BMjEzMjA0ODk1OF5BMl5BanBnXkFtZTcwMTA4ODM3OQ@@._V1_UY256_CR5,0,172,256_AL_.jpg",
+            nombre : "Imelda",
+            apellido_paterno : "Martínez",
+            apellido_materno : "Alvarez",
+            edad : 17,
+            tienen_novia : false,
+            biografia : "Nacio en San Luis Potosí, sus padres son Nanci Alvarez Meza y Jose Luis Martínez, estudio la primaria en el colegio montesori, estudio la secundaria en el colegio sagrado corazon, actualmente estudia su preparatoria en el tec milenio",
+            pasatiempos : ["Salir con el novio"]
+        },
+
+    ];
+            const section = document.createElement("section")
+            section.classList.add("user-cards")
+            const container = document.createElement("div")
+            container.classList.add("container")
+
+
+            for(let i = 0; i < personas.length; i++) { 
+               const card = document.createElement("div");
+               card.classList.add("tarjeta");
+
+               const cardTitle = document.createElement("h3");
+               const cardTitleInfo = document.createTextNode(personas[i].nombre + " " + personas[i].apellido_paterno + " " + personas[i].apellido_materno);
+               cardTitle.appendChild(cardTitleInfo);
+               cardTitle.classList.add("nombre")
+               card.appendChild(cardTitle);
+
+               const avatarFigure = document.createElement("figure");
+               const avatarImg = document.createElement("img");
+               avatarImg.setAttribute("src", personas[i].avatar);
+               avatarFigure.appendChild(avatarImg)
+               avatarImg.classList.add("pic")
+               card.appendChild(avatarFigure) 
+
+               const edad = document.createElement("h5");
+               const edadInfo = document.createTextNode("Esta persona tiene " + personas[i].edad + " años");
+               edad.appendChild(edadInfo);
+                edad.classList.add("age")
+               card.appendChild(edad)
+
+
+               if(personas[i].tienen_novia == true) {
+                   
+                    const tiene_novia = document.createElement("p");
+
+                    const tiene_noviaInfo = document.createTextNode("<3");
+                    tiene_novia.classList.add("noviazgo");
+                    tiene_novia.appendChild(tiene_noviaInfo);
+                    card.appendChild(tiene_novia);
+               }
+
+
+               const biografia = document.createElement("p")
+               const biografiaInfo = document.createTextNode(personas[i].biografia)
+               biografia.appendChild(biografiaInfo)
+               biografia.classList.add("biografia")
+               card.appendChild(biografia)
+
+                
+               
+               for(let j = 0; j < personas[i].pasatiempos.length; j++){
+                   const pasatiempos = document.createElement("span")
+               const pasatiemposInfo = document.createTextNode(personas[i].pasatiempos[j]);
+               pasatiempos.appendChild(pasatiemposInfo);
+               pasatiempos.classList.add("hobby");
+               card.appendChild(pasatiempos);
+               }
+               
+                   // const info = document.createTextNode(personas[i].nombre + personas[i].apellido_paterno + personas[i].apellido_materno + personas[i].edad + personas[i].tiene_novia + personas[i].biografia + personas[i].pasatiempos)
+                    //card.appendChild(info);
+                document.getElementById("app").appendChild(section);
+                    
+                section.appendChild(container)
+                container.appendChild(card)
+             }
+    </script>
+</body>
+</html>
