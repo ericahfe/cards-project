@@ -84,30 +84,30 @@
             const section = document.createElement("section")
             section.classList.add("user-cards")
             const container = document.createElement("div")
-            container.classList.add("container")
+            container.classList.add("card__container")
 
 
             for(let i = 0; i < personas.length; i++) { 
                const card = document.createElement("div");
-               card.classList.add("tarjeta");
+               card.classList.add("card__structure");
 
                const cardTitle = document.createElement("h3");
                const cardTitleInfo = document.createTextNode(personas[i].nombre + " " + personas[i].apellido_paterno + " " + personas[i].apellido_materno);
                cardTitle.appendChild(cardTitleInfo);
-               cardTitle.classList.add("nombre")
+               cardTitle.classList.add("card__name")
                card.appendChild(cardTitle);
 
                const avatarFigure = document.createElement("figure");
                const avatarImg = document.createElement("img");
                avatarImg.setAttribute("src", personas[i].avatar);
                avatarFigure.appendChild(avatarImg)
-               avatarImg.classList.add("pic")
+               avatarImg.classList.add("card__avatar")
                card.appendChild(avatarFigure) 
 
                const edad = document.createElement("h5");
                const edadInfo = document.createTextNode("Esta persona tiene " + personas[i].edad + " años");
                edad.appendChild(edadInfo);
-                edad.classList.add("age")
+                edad.classList.add("card__age")
                card.appendChild(edad)
 
 
@@ -116,7 +116,7 @@
                     const tiene_novia = document.createElement("p");
 
                     const tiene_noviaInfo = document.createTextNode("<3");
-                    tiene_novia.classList.add("noviazgo");
+                    tiene_novia.classList.add("card__relationship");
                     tiene_novia.appendChild(tiene_noviaInfo);
                     card.appendChild(tiene_novia);
                }
@@ -125,7 +125,7 @@
                const biografia = document.createElement("p")
                const biografiaInfo = document.createTextNode(personas[i].biografia)
                biografia.appendChild(biografiaInfo)
-               biografia.classList.add("biografia")
+               biografia.classList.add("card__bio")
                card.appendChild(biografia)
 
                 
@@ -134,7 +134,7 @@
                    const pasatiempos = document.createElement("span")
                const pasatiemposInfo = document.createTextNode(personas[i].pasatiempos[j]);
                pasatiempos.appendChild(pasatiemposInfo);
-               pasatiempos.classList.add("hobby");
+               pasatiempos.classList.add("card__hobbie");
                card.appendChild(pasatiempos);
                }
                

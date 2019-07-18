@@ -3,7 +3,7 @@ body{
    
 }
  
-.estructura{
+.card__container{
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -11,7 +11,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.tarjeta{
+.card__structure{
 display:flex;
 flex-direction: column;
 width: 30%;
@@ -20,13 +20,13 @@ margin-bottom: 30px;
 align-items: center;
 border :solid black 3px;
 }
-.pic{
+.card__avatar{
     border-radius: 100%;
     width: 130px;
     height: 130px;
     border: solid black 1px;
 }
-.biografia{
+.card__bio{
     font-size: 16px;
     font-weight: 300;
     margin-right: 10px;
@@ -34,12 +34,12 @@ border :solid black 3px;
     font-weight: 300;
     color: gray;
 }
-.nombre{
+.card__name{
     color: black;
     font-size: 22px;
     font-weight: 700;
 }
-.age{
+.card__age{
 font-size: 15px;
 color: brown;
 }
